@@ -1,6 +1,8 @@
 const domainOptions = document.getElementById("domains");
 const btn = document.getElementById("generate");
 const list = document.getElementById("list");
+const generateBtn = document.getElementById("generate");
+const undoBtn = document.getElementById("undo");
 
 const art = ["the", "a"];
 const adj = ["great", "worst", "fabulous", "nice", "crowded"];
@@ -16,12 +18,11 @@ const domainList = [
   ".edu",
   ".ar",
   ".pt",
+  ".ar"
 ];
 
 //Render domain options
-const optionsForDomain = domainList.map((x) =>
-  document.createElement("option")
-);
+const optionsForDomain = domainList.map(x => document.createElement("option"));
 
 for (let i in domainList) {
   optionsForDomain[i].value = domainList[i];
@@ -54,7 +55,7 @@ const updateContent = () => {
 const generateList = () => {
   selectedDomain = domainOptions.value;
   // console.log(domainOptions.innerHTML);
-  htmlElements = combinations.map((x) => `<li>${x}${selectedDomain}</li>`);
+  htmlElements = combinations.map(x => `<li>${x}${selectedDomain}</li>`);
   updateContent();
   list.classList.remove("hidden");
 };
@@ -63,4 +64,6 @@ const removeAll = () => {
   list.innerHTML = "";
   list.classList.add("hidden");
 };
-//didn't have time for the other bonus of replacing the domain :(
+
+generateBtn.addEventListener("click", generateList);
+undoBtn.addEventListener("click", removeAll);
