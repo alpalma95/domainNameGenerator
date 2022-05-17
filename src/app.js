@@ -1,5 +1,6 @@
+import "./style.css";
+
 const domainOptions = document.getElementById("domains");
-const btn = document.getElementById("generate");
 const list = document.getElementById("list");
 const generateBtn = document.getElementById("generate");
 const undoBtn = document.getElementById("undo");
